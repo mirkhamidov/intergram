@@ -36,10 +36,12 @@ export default class Chat extends Component {
         return (
             <div>
                 <MessageArea messages={state.messages} conf={this.props.conf}/>
-
-                <input class="textarea" type="text" placeholder={this.props.conf.placeholderText}
-                       ref={(input) => { this.input = input }}
-                       onKeyPress={this.handleKeyPress}/>
+                <div class="textarea-wrapper">  
+                    <label for="message">$</label>
+                    <input autofocus="true" id="message" class="textarea" type="text" placeholder={this.props.conf.placeholderText}
+                         ref={(input) => { this.input = input }}
+                         onKeyPress={this.handleKeyPress}/>
+                </div>
 
             </div>
         );
@@ -64,7 +66,7 @@ export default class Chat extends Component {
                         text: this.props.conf.autoNoResponse,
                         from: 'admin'});
                     this.autoResponseState = 'canceled';
-                }, 60 * 1000);
+                }, 360 * 1000);
                 this.autoResponseState = 'set';
             }
         }
