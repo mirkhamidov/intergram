@@ -1,19 +1,29 @@
-
-/* An adaptation of this https://codepen.io/Varo/pen/gbZzgr */
-
 html, body {
     background: #293237;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inconsolata', monospace;
     margin: 0 auto;
 }
 
 /* M E S S A G E S */
 
+.name {
+    font-size: 0.7rem;
+    color: orange;
+}
+
+.visitor .name {
+    color: #00bfff;
+}
+
+.admin .name.answer {
+    color: #5af78e;
+}
+
 .chat {
     list-style: none;
     background: none;
-    padding: 0 0 50px 0;
-    margin: 0 0 10px;
+    padding: 0 0 20px 0;
+    margin: 0 0 20px;
 }
 
 .chat li {
@@ -29,10 +39,10 @@ html, body {
 }
 
 .visitor {
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
         -ms-flex-align: end;
@@ -46,7 +56,6 @@ html, body {
         -ms-flex-order: 1;
             order: 1;
     border-bottom-right-radius: 0;
-    box-shadow: 1px 2px 0 #D4D4D4;
 }
 
 .admin .msg {
@@ -55,17 +64,15 @@ html, body {
         -ms-flex-order: 1;
             order: 1;
     border-top-left-radius: 0;
-    box-shadow: -1px 2px 0 #D4D4D4;
 }
 
 .msg {
     word-wrap: break-word;
-    background: white;
+    background: transparent;
+    color: #ccc;
     min-width: 50px;
     max-width: 80%;
-    padding: 10px;
-    border-radius: 2px;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+    padding: 0 10px;
 }
 
 .msg p {
@@ -73,18 +80,17 @@ html, body {
     margin: 0 0 0.2rem 0;
 }
 
-.msg .time {
-    font-size: 11.2px;
+.msg .time{
     font-size: 0.7rem;
-    color: #ccc;
-    margin-top: 3px;
-    float: right;
+    color: #777;
     cursor: default;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
+
 
 ::-webkit-scrollbar {
     min-width: 12px;
@@ -121,26 +127,43 @@ html, body {
 
 /* I N P U T */
 
-input.textarea {
+.textarea-wrapper {
+    background-color: #293237;
     position: fixed;
-    bottom: 14px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    padding-left: 18px;
+    bottom: 0;
     left: 0;
     right: 0;
-    width: 95%;
-    height: 30px;
-    z-index: 99;
-    background: #fafafa;
-    border: none;
-    outline: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: #666;
-    font-weight: 400;
 }
 
+label {
+    color: #ccc;
+}
+
+input.textarea {
+    width: 100%;
+    height: 30px;
+    z-index: 99;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    padding-right: 15px;
+    color: #ccc;
+    font-weight: 400;
+    font-size: 14px;
+
+}
 
 a.banner {
-    position: fixed;
+    display: none;
     bottom: 0;
     left: 0;
     right: 0;
