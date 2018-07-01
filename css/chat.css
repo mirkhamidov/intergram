@@ -74,7 +74,7 @@ html, body {
     background: transparent;
     color: #ccc;
     min-width: 50px;
-    max-width: 80%;
+    max-width: 100%;
     padding: 0 10px;
 }
 
