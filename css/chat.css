@@ -1,11 +1,10 @@
 html, body {
-    background: #ccc;
+    background: red;
     font-family: 'Inconsolata', monospace;
     margin: 0 auto;
 }
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+    display: none;
 }
 
 /* M E S S A G E S */
