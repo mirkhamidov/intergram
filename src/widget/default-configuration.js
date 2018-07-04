@@ -1,17 +1,19 @@
 
 export const defaultConfiguration = {
-    titleClosed: 'Click to chat!',
-    titleOpen: 'Let\'s chat!',
+    titleClosed: 'Чат!',
+    titleOpen: 'Техническая поддержка',
     closedStyle: 'chat', // button or chat
     closedChatAvatarUrl: '', // only used if closedStyle is set to 'chat'
-    cookieExpiration: 1, // in days. Once opened, closed chat title will be shown as button (when closedStyle is set to 'chat')
-    introMessage: 'Это чат со мной. Здесь можно задать вопрос или написать что-нибудь.',
-    autoResponse: 'Спасибо за сообщение. Постраюсь отписать Вам, как можно быстрее.',
-    autoNoResponse: 'Мне не удалось быстро найти ответ на Ваше сообщение или я сейчас недоступен. ' +
-    'Но я обязательно отпишу Вам позже.',
+    cookieExpiration: 10, // in days. Once opened, closed chat title will be shown as button (when closedStyle is set to 'chat')
+    introMessage: 'Здесь можете задать любые вопросы относительно проекта.',
+    autoResponse: 'Скоро ответим, пожалуйста, подождите ;-)',
+    autoNoResponse: 'Прошла минута, мы не ответили, очевидно - заняты. Мы получили ваше сообщение, обязательно ответим. ' +
+    'История чата не сотрется, так что, сможете и позже прочитать ответ.',
     placeholderText: 'Введите сообщение',
     displayMessageTime: true,
     mainColor: '#1f8ceb',
+    visitorName: null,
+    projectName: 'Тех.поддержка',
     alwaysUseFloatingButton: false,
     desktopHeight: 450,
     desktopWidth: 370

@@ -53,27 +53,32 @@ io.on('connection', function(client){
         client.on('message', function(msg) {
             messageReceived = true;
             io.emit(chatId + "-" + userId, msg);
-            let visitorName = msg.visitorName ? "[" + msg.visitorName + "]: " : "";
-            sendTelegramMessage(chatId, userId + ":" + visitorName + " " + msg.text);
+            let visitorName = msg.visitorName ? "[<b>" + msg.visitorName + "</b>]: " : "";
+            sendTelegramMessage(chatId, userId + ":" + visitorName + "\n" + msg.text);
         });
 
-        client.on('disconnect', function(){
+        client.on('disconnect', function(msg, i){
             if (messageReceived) {
-                sendTelegramMessage(chatId, userId + " has left");
+                sendTelegramMessage(chatId, userId + " has left", 'HTML', true);
             }
         });
     });
 
 });
 
-function sendTelegramMessage(chatId, text, parseMode) {
+function sendTelegramMessage(chatId, text, parseMode, disableNotification = false) {
+    if (!parseMode) {
+        parseMode = 'HTML';
+    }
+    let _form = {
+        "chat_id": chatId,
+        "text": text,
+        "disable_notification": disableNotification,
+        "parse_mode": parseMode
+    };
     request
         .post('https://api.telegram.org/bot' + process.env.TELEGRAM_TOKEN + '/sendMessage')
-        .form({
-            "chat_id": chatId,
-            "text": text,
-            "parse_mode": parseMode
-        });
+        .form(_form);
 }
 
 app.post('/usage-start', cors(), function(req, res) {

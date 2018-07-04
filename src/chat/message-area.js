@@ -19,7 +19,7 @@ export default class MessageArea extends Component {
             <ol class="chat">
                 {props.messages.map(({name, text, from, time}) => {
                     if (from === 'visitor') {
-                        name = "Ваше сообщение";
+                        name = "Вы";
                     }
                     return (
                         <li class={from}>
@@ -38,9 +38,9 @@ export default class MessageArea extends Component {
                                     ''
                                 }
                                 { (name) ?
-                                    <span class="name answer">&nbsp;{name}</span> 
+                                    <span class="name answer">{name}&nbsp;</span>
                                     :
-                                    <span class="name"> Бот Секретарь</span> 
+                                    <span class="name">{props.conf.projectName}&nbsp;</span>
                                 }
                                </p>
                                <p> 
