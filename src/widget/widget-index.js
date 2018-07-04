@@ -16,7 +16,7 @@ function injectChat() {
         root.id = 'intergramRoot';
         document.getElementsByTagName('body')[0].appendChild(root);
         // const server = window.intergramServer || 'https://www.intergram.xyz';
-        const server = window.intergramServer || 'https://mintergram.herokuapp.com/';
+        const server = window.intergramServer || 'https://mintergram.herokuapp.com';
         const iFrameSrc = server + '/chat.html';
         const host = window.location.host || 'unknown-host';
         const conf = { ...defaultConfiguration, ...window.intergramCustomizations };
